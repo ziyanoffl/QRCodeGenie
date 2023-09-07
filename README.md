@@ -18,22 +18,6 @@ This project is a web application built using Flask, a lightweight web framework
     ```
 3. The application will start locally at http://localhost:5000.
 
-## How to Deploy on Vercel
-1. Create a Vercel Account.
-2. Install the Vercel CLI:
-    ```bash
-    npm install -g vercel
-    ```
-3. Log in to your Vercel account using:
-    ```bash
-    vercel login
-    ```
-4. Deploy the application:
-    ```bash
-    vercel
-    ```
-5. Follow the prompts to deploy the application. Vercel will provide you with a unique URL for your deployed app.
-
 ## Learnings
 - Flask: Learned how to use Flask to create a basic web application, handle routes, and render HTML templates.
 - qrcode Library: Gained experience in using the qrcode library to generate QR codes in Python.
