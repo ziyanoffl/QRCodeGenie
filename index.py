@@ -1,4 +1,4 @@
-# app.py (Python script)
+# index.py (Python script)
 
 from flask import Flask, render_template, request
 import qrcode
