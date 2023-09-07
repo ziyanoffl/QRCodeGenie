@@ -1,6 +1,5 @@
-# index.py (Python script)
-
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
+import io
 import qrcode
 
 app = Flask(__name__)
@@ -23,8 +22,13 @@ def generate_qr():
     qr.add_data(link)
     qr.make(fit=True)
     img = qr.make_image(fill_color="black", back_color="white")
-    img.save('static/qrcode.png')  # Save the QR code image
-    return render_template('generated.html')
+
+    # Convert image to bytes and send it directly to the HTML template
+    img_io = io.BytesIO()
+    img.save(img_io, format='PNG')
+    img_io.seek(0)
+
+    return render_template('generated.html', qr_image=img_io)
 
 
 if __name__ == '__main__':
