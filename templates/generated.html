@@ -9,7 +9,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Generated QR Code</h1>
-        <img src="{{ url_for('generate_qr') }}" alt="QR Code">
+        <img src="data:image/png;base64,{{ qr_image }}" alt="QR Code">
     </div>
 </body>
 </html>

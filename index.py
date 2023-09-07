@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request
 import io
 import qrcode
+from PIL import Image
+import base64
 
 app = Flask(__name__)
 
@@ -23,12 +25,13 @@ def generate_qr():
     qr.make(fit=True)
     img = qr.make_image(fill_color="black", back_color="white")
 
-    # Convert image to bytes and send it directly to the HTML template
+    # Convert image to base64
     img_io = io.BytesIO()
     img.save(img_io, format='PNG')
     img_io.seek(0)
+    img_data = base64.b64encode(img_io.getvalue()).decode()
 
-    return render_template('generated.html', qr_image=img_io)
+    return render_template('generated.html', qr_image=img_data)
 
 
 if __name__ == '__main__':
